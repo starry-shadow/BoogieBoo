@@ -5,6 +5,8 @@
 init offset = -1
 
 default mtop = 0    ## Define each of the variables you use later
+default mhair = 0
+default mbottom = 0
 screen dressup():
     tag menu
     
@@ -16,8 +18,13 @@ screen dressup():
     ## This is the button "Top" which, when toggled, cycles through the tops available.
     ## The "mtop" inside the SetVariable should be whatever variable you decide to use
     ## for this item. Change the number after the % to however many clothing items you have.
+    textbutton "<" action SetVariable("mtop", ((mtop)- 1) % 3 ) xalign 0.80 yalign 0.225:
+        text_size 24
+        text_color "#d5dee8"
+        text_hover_color "#6ba0e3"
+        text_outlines [ (2, "#0049a8", 0, 0) ]
 
-    textbutton "Top" action SetVariable("mtop", (mtop) % 3 + 1) xalign 0.86 yalign 0.12:
+    textbutton "Top" action SetVariable("mtop", 0) xalign 0.86 yalign 0.22:
         ## This text here is more for polish- i.e., it's to make the button look good, but
         ## the button will still work without it. Remember to use a colon after the first line
         ## if you follow it up with text like this that's indented.
@@ -28,13 +35,66 @@ screen dressup():
 
     ## This textbutton basically resets the Top button by setting it to a default "0"
     ## as you can see in the SetVariable
-    textbutton "x" action SetVariable("mtop", 0) xalign 0.90 yalign 0.125:
+    textbutton ">" action SetVariable("mtop", (mtop + 1) % 3) xalign 0.90 yalign 0.225:
         text_size 24
         text_color "#d5dee8"
         text_hover_color "#6ba0e3"
         text_outlines [ (2, "#0049a8", 0, 0) ]
 
-    add "top{}".format(mtop)
+    add "top{}".format(mtop) at items
+
+    textbutton "<" action SetVariable("mhair", ((mhair)- 1) % 3 ) xalign 0.80 yalign 0.125:
+        text_size 24
+        text_color "#d5dee8"
+        text_hover_color "#6ba0e3"
+        text_outlines [ (2, "#0049a8", 0, 0) ]
+
+    textbutton "Hair" action SetVariable("mhair", 0) xalign 0.86 yalign 0.12:
+        ## This text here is more for polish- i.e., it's to make the button look good, but
+        ## the button will still work without it. Remember to use a colon after the first line
+        ## if you follow it up with text like this that's indented.
+        text_size 36                ## Changes text size
+        text_color "#fff"           ## Changes text color
+        text_hover_color "#6ba0e3"  ## Changes text hover color
+        text_outlines [ (2, "#0049a8", 0, 0) ] ## Adds an outline the text
+
+    ## This textbutton basically resets the Top button by setting it to a default "0"
+    ## as you can see in the SetVariable
+    textbutton ">" action SetVariable("mhair", (mhair + 1) % 3) xalign 0.90 yalign 0.125:
+        text_size 24
+        text_color "#d5dee8"
+        text_hover_color "#6ba0e3"
+        text_outlines [ (2, "#0049a8", 0, 0) ]
+
+    add "hair{}".format(mhair) at items
+
+    
+    textbutton "<" action SetVariable("mbottom", ((mbottom)- 1) % 2 ) xalign 0.80 yalign 0.325:
+        text_size 24
+        text_color "#d5dee8"
+        text_hover_color "#6ba0e3"
+        text_outlines [ (2, "#0049a8", 0, 0) ]
+
+    textbutton "Bottom" action SetVariable("mbottom", 0) xalign 0.87 yalign 0.32:
+        ## This text here is more for polish- i.e., it's to make the button look good, but
+        ## the button will still work without it. Remember to use a colon after the first line
+        ## if you follow it up with text like this that's indented.
+        text_size 36                ## Changes text size
+        text_color "#fff"           ## Changes text color
+        text_hover_color "#6ba0e3"  ## Changes text hover color
+        text_outlines [ (2, "#0049a8", 0, 0) ] ## Adds an outline the text
+
+    ## This textbutton basically resets the Top button by setting it to a default "0"
+    ## as you can see in the SetVariable
+    textbutton ">" action SetVariable("mbottom", (mbottom + 1) % 2) xalign 0.90 yalign 0.325:
+        text_size 24
+        text_color "#d5dee8"
+        text_hover_color "#6ba0e3"
+        text_outlines [ (2, "#0049a8", 0, 0) ]
+
+    add "bottom{}".format(mbottom) at items
+
+
     ## NOTE: All of this should be indented under the screen dressup!
 
 ################################################################################

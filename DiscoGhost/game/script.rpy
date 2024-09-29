@@ -11,7 +11,7 @@ define e = Character("Ghost")
 
 transform items:
     xalign 0.5
-    yalign -1
+    yalign 0.5
 
 label start:
     call screen dressup
